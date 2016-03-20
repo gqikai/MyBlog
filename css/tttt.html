@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#b01").click(function(){
+                htmlobj=$.ajax({url:"http://localhost:63343/2.%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0Demo/css/normalize.css",async:false});
+                $("#myDiv").html(htmlobj.responseText);
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="myDiv"><h2>Let AJAX change this text</h2></div>
+<button id="b01" type="button">Change Content</button>
+</body>
+</html>
