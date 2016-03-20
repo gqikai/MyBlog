@@ -1,29 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="mainApp">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <script src="../js/angular.js" ></script>
+    <script>
+        //define a module
+        var mainApp = angular.module("mainApp", []);
+        //create a factory "MathService" which provides a method multiply to return multiplication of two numbers
+        mainApp.factory('MathService', function() {
+            var factory = {};
+            factory.multiply = function(a, b) {
+                return a * b
+            }
+            return factory;K
+        });
+
+        //inject the factory "MathService" in a service to utilize the multiply method of factory.
+        mainApp.service('CalcService', function(MathService){
+            this.square = function(a) {
+                return MathService.multiply(a,a);
+            }
+        });
+    </script>
 </head>
+<body ng-controller="CalcController">
+{{result}}
 
-<body><style>
-    .navbar{
-        background-color: #1ABC9C}
-
-</style>
-<div class="navbar">
-    <div>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Home</a></li>
-
-
-        </ul>
-    </div>
-</div>
 </body>
 </html>
