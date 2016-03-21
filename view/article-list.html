@@ -1,0 +1,45 @@
+<style>
+    #articles .row {margin-top: 50px;}
+    #article-list li {margin-top: 20px;}
+    #article-list li:nth-of-type(1) {margin-top: 0;}
+</style>
+
+<div class="container" id="articles">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="content.html" class="list-group-item active">文章列表</a>
+                <a href="content_post.html" class="list-group-item">文章分类</a>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <ul id="article-list" >
+                <li ng-repeat="article in articles" class="each-post">
+                    <div class="title">
+                        <h2 href="{{article.url}}"
+                           title="{{article.title}}">
+                            {{article.title}}
+                        </h2>
+                    </div>
+                    <div class="created-time">
+                        <i class="fa fa-clock-o"></i> {{article.time}}
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye"></span> {{article.read}}
+                        &nbsp;&nbsp;
+                    </div>
+                    <div class="desc desc-limit">
+                        {{article.content}}
+                    </div>
+                    <div id="moreContainer">
+                        <a class="more"
+                           href="{{article.url}}"
+                           title="{{article.title}}">
+                            阅读全文</a>
+                    </div>
+                    <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,30 +1,16 @@
 <!doctype html>
-<html lang="en" ng-app="mainApp">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
-    <script src="../js/angular.js" ></script>
-    <script src="../js/angular-resource.js"></script>
     <script>
-        //define a module
-        var mainApp = angular.module("mainApp", ['ngResource']);
+        window.onload = function () {
+            console.log(document.getAnonymousElementByAttribute('ng-model'))
+        }
 
-        mainApp.factory('test', ['$resource',
-            function($resource){
-                return $resource('test.json');
-            }]);
-
-        mainApp.controller('testCtrl', ['$scope', 'test',
-            function($scope, test) {
-                console.log('hello');
-                $scope.phone = test.get(function(data) {
-                    console.log(data);
-
-                });
-            }]);
     </script>
 </head>
-<body ng-controller="testCtrl">
-
+<body>
+<input type="text" ng-model="model">
 
 
 </body>

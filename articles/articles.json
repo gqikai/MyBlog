@@ -1,0 +1,23 @@
+[
+  {
+    "url":"http://www.baidu.com",
+    "title": "原型与继承",
+    "time": "2016-03-14 21:31:30",
+    "read": "1",
+    "content": "我们不妨来看这么一道有趣的题目： 小贤是一条可爱的小狗(Dog)，它的叫声很好听(wow)，每次看到主人的时候就会乖乖叫一声(yelp)，小芒和小贤一样，原来也是一条可爱的小狗，可是突然有一天疯了(MadDog)，一看到人就会每隔半秒叫一声(wow)地不停叫唤(yelp) ``` function Dog() { this.sing = \"wow\"; } Dog.prototype.ye"
+  },
+  {
+    "url":"http://www.baidu.com",
+    "title": "原型与继承",
+    "time": "2016-03-14 21:31:30",
+    "read": "92",
+    "content": "我们不妨来看这么一道有趣的题目： 小贤是一条可爱的小狗(Dog)，它的叫声很好听(wow)，每次看到主人的时候就会乖乖叫一声(yelp)，小芒和小贤一样，原来也是一条可爱的小狗，可是突然有一天疯了(MadDog)，一看到人就会每隔半秒叫一声(wow)地不停叫唤(yelp) ``` function Dog() { this.sing = \"wow\"; } Dog.prototype.ye"
+  },
+  {
+    "url":"http://www.baidu.com",
+    "title": "原型与继承",
+    "time": "2016-03-14 21:31:30",
+    "read": "3",
+    "content": "我们不妨来看这么一道有趣的题目： 小贤是一条可爱的小狗(Dog)，它的叫声很好听(wow)，每次看到主人的时候就会乖乖叫一声(yelp)，小芒和小贤一样，原来也是一条可爱的小狗，可是突然有一天疯了(MadDog)，一看到人就会每隔半秒叫一声(wow)地不停叫唤(yelp) ``` function Dog() { this.sing = \"wow\"; } Dog.prototype.ye"
+  }
+]

@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-CN" ng-app="mysite">
+<html lang="zh-CN" ng-app="mySite">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
-    <link rel="stylesheet" href="css/bootstrap.min.new.css"/>
-    <link rel="stylesheet" href="css/bootstrap-maizi.css"/>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.new.css"/>
+    <link rel="stylesheet" href="css/bootstrap-maizi.css"/>
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css">
-
-    <link href="dist/css/lightgallery.css" rel="stylesheet">
-
-    <link href='http://fonts.useso.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
-
-    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-
+    <link rel="stylesheet" href="dist/css/lightgallery.css">
+    <link rel='stylesheet' href='http://fonts.useso.com/css?family=Open+Sans:300,400,700' type='text/css'>
+    <link rel="stylesheet" href="css/global-style.css"/>
     <link href='css/immersive-slider.css' rel='stylesheet' type='text/css'>
 
+
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script src="js/angular.js"></script>
     <script src="js/angular-route.js"></script>
+    <script src="js/angular-resource.js"></script>
     <script src="js/app.js"></script>
+    <!--<script src="js/animations.js"></script>-->
+    <script src="js/controllers.js"></script>
+    <!--<script src="js/filters.js"></script>-->
+    <script src="js/services.js"></script>
 
     <!--[if IE]>
     <script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
@@ -33,7 +37,7 @@
 
 <body>
 <!--导航-->
-<nav class="navbar navbar-default" ng-controller="NavController">
+<nav class="navbar navbar-default" >
     <div class="container">
         <!--小屏幕导航按钮和logo-->
         <div class="navbar-header">

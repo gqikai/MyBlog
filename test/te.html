@@ -1,0 +1,15 @@
+
+<ul class="tabList list-group" ng-repeat="(key,value) in tabData">
+
+    <div class="panel-heading">{{key | date:'medium'}}
+    </div>
+    <li class="list-group-item" ng-repeat="tab in value">
+        <div class="tab_info ">
+            <img src="">
+            <div>
+                <a class="title" href="#">{{tab.title}}</a>
+                <p>{{tab.url}}</p>
+            </div>
+        </div>
+    </li>
+</ul>
