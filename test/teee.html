@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <script src="../js/angular.js" ></script>
+    <script src="../js/angular-resource.js"></script>
     <script>
         //define a module
-        var mainApp = angular.module("mainApp", []);
-        //create a factory "MathService" which provides a method multiply to return multiplication of two numbers
-        mainApp.factory('MathService', function() {
-            var factory = {};
-            factory.multiply = function(a, b) {
-                return a * b
-            }
-            return factory;K
-        });
+        var mainApp = angular.module("mainApp", ['ngResource']);
 
-        //inject the factory "MathService" in a service to utilize the multiply method of factory.
-        mainApp.service('CalcService', function(MathService){
-            this.square = function(a) {
-                return MathService.multiply(a,a);
-            }
-        });
+        mainApp.factory('test', ['$resource',
+            function($resource){
+                return $resource('test.json');
+            }]);
+
+        mainApp.controller('testCtrl', ['$scope', 'test',
+            function($scope, test) {
+                console.log('hello');
+                $scope.phone = test.get(function(data) {
+                    console.log(data);
+
+                });
+            }]);
     </script>
 </head>
-<body ng-controller="">
+<body ng-controller="testCtrl">
 
-{{result}}
+
 
 </body>
 </html>
