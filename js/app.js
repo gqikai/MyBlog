@@ -25,4 +25,3 @@ mySite.config(['$routeProvider',
       })
     .otherwise({redirectTo: '/'});
 }])
-

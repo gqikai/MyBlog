@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript" >
+        $(document).ready(function(){
+//等高列的小插件
+            function setEqualHeight(columns) {
+                var tallestColumn = 0;
+                columns.each(function(){
+                    currentHeight = $(this).height();
+                    if(currentHeight > tallestColumn) {
+                        tallestColumn = currentHeight;
+                    }
+                });
+                columns.height(tallestColumn);
+            }
+//调用写好的插件，基中“.container > div”是你需要实现的等高列
+            setEqualHeight($(".container > div"));
+        });
+    </script>
+    <style type="text/css" >
+        .contanier {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        .aside,
+        .section {
+            float:left;
+            width: 33%;
+            background: lime;
+        }
+
+        .leftSidebar {background: orange;}
+        .section { background: green;}
+    </style>
+</head>
+<body>
+
+<div class="container" >
+    <div id="left" class="aside leftSidebar" >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi, architecto asperiores, dicta dolores eos est expedita facere fuga harum, id libero molestiae neque obcaecati officiis qui quod veniam voluptatum!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam beatae distinctio eaque error eveniet exercitationem explicabo hic in, ipsum laborum minima modi mollitia nostrum saepe voluptas! Et inventore magnam ut.
+    </div>
+    <div id="content" class="section" ></div>
+    <div id="right" class="aside rightSidebar" ></div>
+</div>
+</body>
+</html>

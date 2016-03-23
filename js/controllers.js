@@ -12,4 +12,6 @@ MySiteControllers.controller('ArticleListCtrl', ['$scope', 'Article',
 MySiteControllers.controller('NavCtrl', ['$scope', 'Article',
     function($scope, Article) {
     }]);
-
+MySiteControllers.controller('IndexController', ['$scope', 'Article',
+    function($scope, Article) {
+    }]);

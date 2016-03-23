@@ -1,17 +1,46 @@
 <!doctype html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
+    <script src="../js/angular.js"></script>
+    <script src="../js/angular-resource.js"></script>
     <script>
-        window.onload = function () {
-            console.log(document.getAnonymousElementByAttribute('ng-model'))
+
+        var app = angular.module('myApp', ['ngResource'])
+        app.factory('TestServ', function ($resource) {
+            return $resource("http://localhost:63344/think/test/test.php", {}, {
+                query: {
+                    method: "PUT",
+                    params: {geekId: "list"},
+                    isArray: true
+                }
+            });
+        });
+
+
+        app.controller('TestCtrl', ['$resource', function ($resource) {
+            var User = $resource('http://localhost:63344/think/test/test.php', {});
+            var user = User.get(function () {
+                user.abc = true;
+                user.$save();
+            });
+        }]);
+
+        function GeekListCtrl($scope, TestServ) {
+            TestServ.get({
+                id: '123'
+            }, function (resp) {
+                console.log(resp)
+            }, function (err) {
+                alert(resp)
+            });
+
         }
+
 
     </script>
 </head>
-<body>
-<input type="text" ng-model="model">
-
-
+<body ng-controller="GeekListCtrl">
+{{geeks}}
 </body>
 </html>
