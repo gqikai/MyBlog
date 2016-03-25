@@ -1,27 +1,51 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="MyApp">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="../js/angular.js"></script>
     <script>
-        angular.module('myApp', [])
-                .controller('myCtrl', ['$scope', '$templateCache', function ($scope, $templateCache) {
-                    var tmp = '<h4>lovestory</h4>'
-                            + '<p>这是直接调用$templateCache服务获取模板文件的方式</p>'
-                            + '<a href="http://www.baidu.com">服务启用templateCache方式</a>';
-                    $templateCache.put('lovestory.html', tmp);
-                }])
-    </script>
-    <script type="text/ng-template" id="lovestory.html">
-        <h4>lovestory</h4>
-        <p>这是script标签获取模板文件的方式</p>
-        <a href="http://www.baidu.com">标签启用templateCache方式</a>
+        angular.module("MyApp", [])
+                .controller("MyController", ["$scope", "$q", function ($scope, $q) {
+                    $scope.flag = true;
+                    $scope.handle = function () {
+                        var deferred = $q.defer();
+                        var promise = deferred.promise;
+
+                        promise.then(function (result) {
+                            result = result + "you have passed the first then()";
+                            $scope.status = result;
+                            return result;
+                        }, function (error) {
+                            error = error + "failed but you have passed the first then()";
+                            $scope.status = error;
+                            return error;
+                        }).then(function (result) {
+                            alert("Success: " + result);
+                        }, function (error) {
+                            alert("Fail: " + error);
+                        })
+
+                        if ($scope.flag) {
+                            deferred.resolve("you are lucky!");
+                        } else {
+                            deferred.reject("sorry, it lost!");
+                        }
+                    }
+                }]);
     </script>
 </head>
 <body>
-
-<div ng-include="'lovestory.html'" class="well"></div>
-
-</body>
+<div ng-app="MyApp">
+    <div ng-controller="MyController">
+        <label for="flag">成功
+            <input id="flag" type="checkbox" ng-model="flag" /><br/>
+        </label>
+        <div ng-cloak>
+            {{status}}
+        </div>
+        <hr/>
+        <button ng-click="handle()">点击我</button>
+    </div>
+</div>
 </html>
