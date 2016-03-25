@@ -1,30 +1,27 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="en" ng-app="myApp">
 <head>
-    <title></title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../js/angular.js"></script>
+    <script>
+        angular.module('myApp', [])
+                .controller('myCtrl', ['$scope', '$templateCache', function ($scope, $templateCache) {
+                    var tmp = '<h4>lovestory</h4>'
+                            + '<p>这是直接调用$templateCache服务获取模板文件的方式</p>'
+                            + '<a href="http://www.baidu.com">服务启用templateCache方式</a>';
+                    $templateCache.put('lovestory.html', tmp);
+                }])
+    </script>
+    <script type="text/ng-template" id="lovestory.html">
+        <h4>lovestory</h4>
+        <p>这是script标签获取模板文件的方式</p>
+        <a href="http://www.baidu.com">标签启用templateCache方式</a>
+    </script>
 </head>
-<script>
-    function addListeners4Li(liNode){
-        liNode.onclick = function clickHandler(){...};
-        liNode.onmouseover = function mouseOverHandler(){...}
-    }
-
-    window.onload = function(){
-        var ulNode = document.getElementById("parent-list");
-        var liNodes = ulNode.getElementByTagName("Li");
-        for(var i=0, l = liNodes.length; i < l; i++){
-            addListeners4Li(liNodes[i]);
-        }
-    }
-</script>
 <body>
-<ul id="parent-list">
-    <li id="post-1">Item 1</li>
-    <li id="post-2">Item 2</li>
-    <li id="post-3">Item 3</li>
-    <li id="post-4">Item 4</li>
-    <li id="post-5">Item 5</li>
-    <li id="post-6">Item 6</li>
-</ul>
+
+<div ng-include="'lovestory.html'" class="well"></div>
+
 </body>
 </html>
