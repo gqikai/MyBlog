@@ -5,19 +5,56 @@
     <title>Document</title>
 </head>
 <body>
-<script>
-    var s = " leading and trailing spaces ";
-    // 增加一个名为 trim 的函数作为
-    // String 构造函数的原型对象的一个方法。
-//    String.prototype.trim = function() {
-//// 用正则表达式将前后空格
-////用空字符串替代。
-//        return this.replace(/(^\s*)|(\s*$)/g, "");
-//    }
-    s = s.trim();
-    // 显示"leading and trailing spaces (27)"
-    console.log(s + " (" + s.length + ")");
+<select id="drinkSelect">
+    <option value="coffee">coffee</option>
+    <option value="milk">milk</option>
+    <option value="juice">juice</option>
+</select>
+<p id="theColorOfDrink"></p>
 
+<script type="text/javascript">
+    //showDrinkColor is Controller
+    var showDrinkColor = {
+        start:function(){
+            this.view.start();
+            console.log(this)
+        },
+        set:function(drinkName){
+            this.model.setDrink(drinkName);
+        }
+    };
+    //Model
+    showDrinkColor.model = {
+        colorOfDrink:{
+            "coffee":"brown",
+            "milk":"white",
+            "juice":"orange"
+        },
+        selectedDrink:null,
+        setDrink:function(drinkName){
+            this.selectedDrink = this.colorOfDrink[this.selectedDrink]?drinkName:null;
+            this.onchange();
+        },
+        onchange:function(){
+            showDrinkColor.view.update();
+        },
+        getDrinkColor:function(){
+            return this.selectedDrink?this.colorOfDrink[this.selectedDrink]:"white";
+        }
+    };
+    //View
+    showDrinkColor.view = {
+        start:function(){
+            document.getElementById("drinkSelect").onchange = this.onchange;
+        },
+        onchange:function(){
+            showDrinkColor.set(document.getElementById("drinkSelect").value);
+        },
+        update:function(){
+            document.getElementById("theColorOfDrink").innerHTML = showDrinkColor.model.getDrinkColor();
+        }
+    };
+    showDrinkColor.start();
 </script>
 </body>
 </html>
